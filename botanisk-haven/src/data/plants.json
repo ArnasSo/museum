@@ -13,6 +13,7 @@
   {
     "id": 2,
     "name": "Dragon Tree",
+    "image": "dragon-tree.png",
     "climate": "Dry desert",
     "likes": "Warm temperatures and little water",
     "introduction": "A strange tree with an umbrella shape that helps it survive in harsh climates.",
@@ -23,6 +24,7 @@
   {
     "id": 3,
     "name": "Arum Lily",
+    "image": "arum-lily.png",
     "climate": "Humid mountain forests",
     "likes": "Moist soil and some shade",
     "introduction": "A beautiful plant with large white flowers that love damp environments.",
@@ -33,6 +35,7 @@
   {
     "id": 4,
     "name": "Blue Gum",
+    "image": "blue-gum.png",
     "climate": "Mediterranean",
     "likes": "Sun and moderate water",
     "introduction": "A fast-growing tree known for its strong smell and smooth bark.",
@@ -43,6 +46,7 @@
   {
     "id": 5,
     "name": "Pebble Plants",
+    "image": "dry-desert.png",
     "climate": "Dry desert",
     "likes": "Very little water and lots of sun",
     "introduction": "These tiny plants look exactly like stones to avoid being eaten.",
@@ -53,6 +57,7 @@
   {
     "id": 6,
     "name": "Donkey's Tail",
+    "image": "donkeys-tail.png",
     "climate": "Dry desert",
     "likes": "Sunlight and little water",
     "introduction": "A hanging plant with long stems full of thick, juicy leaves.",
@@ -63,6 +68,7 @@
   {
     "id": 7,
     "name": "Angel's Trumpet",
+    "image": "angels-trumpet.png",
     "climate": "Humid mountain forests",
     "likes": "Warmth, sun, and lots of water",
     "introduction": "A plant with big, hanging flowers shaped like trumpets.",
@@ -73,6 +79,7 @@
   {
     "id": 8,
     "name": "Indian Clock Vine",
+    "image": "indian-clock-vine.png",
     "climate": "Tropical rainforest",
     "likes": "Warm, humid air and support to climb on",
     "introduction": "A climbing plant with colorful, tube-shaped flowers.",
@@ -83,6 +90,7 @@
   {
     "id": 9,
     "name": "Peladera",
+    "image": "peladera.png",
     "climate": "Tropical rainforest",
     "likes": "Warmth, humidity, and lots of water",
     "introduction": "A tropical plant that grows fruit similar to papaya.",
@@ -93,6 +101,7 @@
   {
     "id": 10,
     "name": "Giant Water Lilies",
+    "image": "giant-water-lilies.png",
     "climate": "Tropical rainforest",
     "likes": "Warm water and lots of sunlight",
     "introduction": "Huge floating plants with giant round leaves.",
