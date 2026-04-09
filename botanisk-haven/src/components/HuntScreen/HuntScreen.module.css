@@ -5,6 +5,7 @@
   justify-content: center;
   padding: 18px;
   background: #eefbea;
+  position: relative;
 }
 
 .card {
@@ -28,8 +29,7 @@
 }
 
 .primaryButton,
-.secondaryButton,
-.testButton {
+.secondaryButton {
   border: none;
   border-radius: 999px;
   padding: 14px 16px;
@@ -46,6 +46,11 @@
 .secondaryButton {
   background: #d8f3dc;
   color: #1b4332;
+}
+
+.primaryButton:disabled,
+.secondaryButton:disabled {
+  opacity: 0.6;
 }
 
 .hintBox {
@@ -69,47 +74,18 @@
   line-height: 1.5;
 }
 
-.testBox {
-  background: white;
-  border-radius: 20px;
-  padding: 16px;
+.resultOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 20, 0.6);
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.testLabel {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #2d6a4f;
-}
-
-.input {
-  width: 100%;
-  border: 2px solid #d8f3dc;
-  border-radius: 14px;
-  padding: 14px 16px;
-  font-size: 1rem;
-  outline: none;
-}
-
-.input:focus {
-  border-color: #52b788;
-}
-
-.testButton {
-  background: #40916c;
-  color: white;
-}
-
-.mascotWrap {
-  display: flex;
+  align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
+  padding: 20px;
+  z-index: 1000;
 }
 
-.mascot {
-  width: 120px;
-  height: auto;
-  display: block;
+.resultBox {
+  width: 100%;
+  max-width: 380px;
 }

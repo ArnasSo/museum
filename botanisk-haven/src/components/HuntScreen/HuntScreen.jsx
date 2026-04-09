@@ -14,37 +14,18 @@ function HuntScreen({
   onTryAgain,
 }) {
   const [showHint, setShowHint] = useState(false);
-  const [scanValue, setScanValue] = useState("");
   const [showScanner, setShowScanner] = useState(false);
 
   useEffect(() => {
     setShowHint(false);
-    setScanValue("");
     setShowScanner(false);
   }, [plant]);
-
-  const handleFakeScan = () => {
-    const typedValue = scanValue.trim();
-    const expectedValue = plant.qr_code.trim();
-
-    if (!typedValue) {
-      return;
-    }
-
-    if (typedValue === expectedValue) {
-      onScanSuccess();
-    } else {
-      onScanFail();
-    }
-  };
 
   const handleRealScan = (decodedText) => {
     const scannedValue = String(decodedText).trim();
     const expectedValue = String(plant.qr_code).trim();
 
     setShowScanner(false);
-
-    alert(`Scanned: ${scannedValue}\nExpected: ${expectedValue}`);
 
     if (scannedValue === expectedValue) {
       onScanSuccess();
@@ -86,38 +67,6 @@ function HuntScreen({
             <p className={styles.hintText}>{plant.hint}</p>
           </div>
         )}
-
-        {result && (
-          <ResultMessage
-            type={result}
-            plantName={plant.name}
-            onTryAgain={onTryAgain}
-          />
-        )}
-
-        <div className={styles.testBox}>
-          <label className={styles.testLabel} htmlFor="qr-test-input">
-            Temporary QR test input
-          </label>
-
-          <input
-            id="qr-test-input"
-            className={styles.input}
-            type="text"
-            placeholder={`Type ${plant.qr_code}`}
-            value={scanValue}
-            onChange={(event) => setScanValue(event.target.value)}
-            disabled={result === "success"}
-          />
-
-          <button
-            className={styles.testButton}
-            onClick={handleFakeScan}
-            disabled={result === "success"}
-          >
-            Check QR
-          </button>
-        </div>
       </div>
 
       {showScanner && (
@@ -125,6 +74,18 @@ function HuntScreen({
           onScan={handleRealScan}
           onClose={() => setShowScanner(false)}
         />
+      )}
+
+      {result && (
+        <div className={styles.resultOverlay}>
+          <div className={styles.resultBox}>
+            <ResultMessage
+              type={result}
+              plantName={plant.name}
+              onTryAgain={onTryAgain}
+            />
+          </div>
+        </div>
       )}
     </section>
   );
