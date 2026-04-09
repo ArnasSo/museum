@@ -1,6 +1,6 @@
 import styles from "./ResultMessage.module.css";
-import mascotExcited from "../../assets/images/mascots/mascot-excited.png";
-import mascotConfused from "../../assets/images/mascots/mascot-confused.png";
+import mascotExcited from "../../assets/mascots/mascot-excited.png";
+import mascotConfused from "../../assets/mascots/mascot-confused.png";
 
 function ResultMessage({ type, plantName, onTryAgain }) {
   if (type === "success") {
