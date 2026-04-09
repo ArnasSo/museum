@@ -1,0 +1,37 @@
+.screen {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(180deg, #dff7e2 0%, #bfe8c4 100%);
+  text-align: center;
+}
+
+.overlay {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.title {
+  margin: 0;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: #1f4d2f;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #2f6a43;
+}
+
+.cta {
+  margin: 12px 0 0;
+  font-weight: 700;
+  color: #ffffff;
+  background: #2f8f4e;
+  padding: 12px 18px;
+  border-radius: 999px;
+}

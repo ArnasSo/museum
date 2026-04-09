@@ -2,11 +2,12 @@
   {
     "id": 1,
     "name": "Tree Houseleek",
+    "image": "tree-houseleek.png",
     "climate": "Mediterranean",
     "likes": "Lots of sun, very little water",
     "introduction": "This plant stores water in its thick leaves, so it can survive long dry periods.",
     "fun_fact": "It can grow on rocks and walls, almost like it doesn't need soil!",
-    "hint": "Look for a sunny, dry area with rocks or walls. It might be growing where other plants can’t!",
+    "hint": "Look for a sunny, dry area with rocks or walls. It might be growing where other plants can't!",
     "qr_code": "qr_tree_houseleek_01"
   },
   {

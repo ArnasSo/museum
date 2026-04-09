@@ -1,0 +1,57 @@
+.screen {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #eefbea;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: white;
+  border-radius: 28px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.round {
+  margin: 0;
+  color: #40916c;
+  font-weight: 700;
+}
+
+.title {
+  margin: 0;
+  color: #1b4332;
+  font-size: 1.8rem;
+}
+
+.hint {
+  margin: 0;
+  color: #2d6a4f;
+  line-height: 1.5;
+}
+
+.scanButton,
+.fakeFinish {
+  border: none;
+  border-radius: 999px;
+  padding: 14px 18px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.scanButton {
+  background: #52b788;
+  color: white;
+}
+
+.fakeFinish {
+  background: #d8f3dc;
+  color: #1b4332;
+}
