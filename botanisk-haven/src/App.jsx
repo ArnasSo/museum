@@ -49,20 +49,20 @@ function App() {
 
  const handleScanSuccess = () => {
   setResult("success");
+};
 
-  setTimeout(() => {
-    const isLastRound = currentRound === selectedPlants.length - 1;
+const handleContinue = () => {
+  const isLastRound = currentRound === selectedPlants.length - 1;
 
-    if (isLastRound) {
-      setScreen("end");
-      setResult(null);
-      return;
-    }
-
-    setCurrentRound((prev) => prev + 1);
-    setRoundStep("intro");
+  if (isLastRound) {
+    setScreen("end");
     setResult(null);
-  }, 2200);
+    return;
+  }
+
+  setCurrentRound((prev) => prev + 1);
+  setRoundStep("intro");
+  setResult(null);
 };
 
   const handleScanFail = () => {
@@ -91,14 +91,15 @@ function App() {
 
       {screen === "game" && roundStep === "hunt" && currentPlant && (
         <HuntScreen
-          plant={currentPlant}
-          roundNumber={currentRound + 1}
-          totalRounds={selectedPlants.length}
-          result={result}
-          onScanSuccess={handleScanSuccess}
-          onScanFail={handleScanFail}
-          onTryAgain={handleTryAgain}
-        />
+  plant={currentPlant}
+  roundNumber={currentRound + 1}
+  totalRounds={selectedPlants.length}
+  result={result}
+  onScanSuccess={handleScanSuccess}
+  onScanFail={handleScanFail}
+  onTryAgain={handleTryAgain}
+  onContinue={handleContinue}
+/>
       )}
 
       {screen === "end" && <EndScreen onRestart={startNewGame} />}

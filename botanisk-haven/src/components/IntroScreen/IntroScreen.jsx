@@ -9,6 +9,17 @@ function IntroScreen({ onStartHunt }) {
   return (
     <section className={styles.screen}>
       <div className={styles.card}>
+        <p className={styles.pageLabel}>Plant Hunt</p>
+
+        <div className={styles.bubbleWrap}>
+          <div className={styles.bubble}>
+            <p className={styles.bubbleText}>
+              Welcome to the plant hunt! I will give you hints. Find the right
+              plant, scan its QR code, and complete all 5 hunts!
+            </p>
+          </div>
+        </div>
+
         <div className={styles.mascotWrap}>
           <img
             src={mascotImage}
@@ -17,13 +28,8 @@ function IntroScreen({ onStartHunt }) {
           />
         </div>
 
-        <div className={styles.bubble}>
-          Welcome to the plant hunt! I will give you hints. Find the right
-          plant, scan its QR code, and complete all 5 hunts!
-        </div>
-
         <button className={styles.button} onClick={onStartHunt}>
-          Start the Hunt
+          Start
         </button>
       </div>
     </section>
