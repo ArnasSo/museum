@@ -1,57 +1,103 @@
 .screen {
   min-height: 100dvh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 20px;
+  padding: 18px;
   background: #eefbea;
 }
 
 .card {
   width: 100%;
   max-width: 420px;
-  background: white;
-  border-radius: 28px;
-  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  gap: 18px;
 }
 
 .round {
   margin: 0;
   color: #40916c;
   font-weight: 700;
+  font-size: 0.95rem;
 }
 
-.title {
-  margin: 0;
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.primaryButton,
+.secondaryButton,
+.testButton {
+  border: none;
+  border-radius: 999px;
+  padding: 14px 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  flex: 1;
+}
+
+.primaryButton {
+  background: #52b788;
+  color: white;
+}
+
+.secondaryButton {
+  background: #d8f3dc;
   color: #1b4332;
-  font-size: 1.8rem;
 }
 
-.hint {
+.hintBox {
+  background: #ffffff;
+  border: 2px solid #d8f3dc;
+  border-radius: 20px;
+  padding: 16px;
+}
+
+.hintLabel {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #40916c;
+  text-transform: uppercase;
+}
+
+.hintText {
   margin: 0;
   color: #2d6a4f;
   line-height: 1.5;
 }
 
-.scanButton,
-.fakeFinish {
-  border: none;
-  border-radius: 999px;
-  padding: 14px 18px;
-  font-size: 1rem;
+.testBox {
+  background: white;
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.testLabel {
+  font-size: 0.9rem;
   font-weight: 700;
+  color: #2d6a4f;
 }
 
-.scanButton {
-  background: #52b788;
+.input {
+  width: 100%;
+  border: 2px solid #d8f3dc;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #52b788;
+}
+
+.testButton {
+  background: #40916c;
   color: white;
-}
-
-.fakeFinish {
-  background: #d8f3dc;
-  color: #1b4332;
 }
