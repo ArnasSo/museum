@@ -1,0 +1,64 @@
+.screen {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #f6fff3;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.round {
+  margin: 0;
+  color: #40916c;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.mascot {
+  width: 190px;
+  height: 190px;
+  border-radius: 24px;
+  background: #d8f3dc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2d6a4f;
+  font-weight: 700;
+  text-align: center;
+  padding: 12px;
+}
+
+.bubble {
+  width: 100%;
+  background: white;
+  border-radius: 24px;
+  padding: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.text {
+  margin: 0;
+  color: #23412d;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.button {
+  border: none;
+  border-radius: 999px;
+  padding: 14px 22px;
+  background: #40916c;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+}
