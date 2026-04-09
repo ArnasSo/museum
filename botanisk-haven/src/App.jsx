@@ -47,23 +47,23 @@ function App() {
     setResult(null);
   };
 
-  const handleScanSuccess = () => {
-    setResult("success");
+ const handleScanSuccess = () => {
+  setResult("success");
 
-    setTimeout(() => {
-      const isLastRound = currentRound === selectedPlants.length - 1;
+  setTimeout(() => {
+    const isLastRound = currentRound === selectedPlants.length - 1;
 
-      if (isLastRound) {
-        setScreen("end");
-        setResult(null);
-        return;
-      }
-
-      setCurrentRound((prev) => prev + 1);
-      setRoundStep("intro");
+    if (isLastRound) {
+      setScreen("end");
       setResult(null);
-    }, 1400);
-  };
+      return;
+    }
+
+    setCurrentRound((prev) => prev + 1);
+    setRoundStep("intro");
+    setResult(null);
+  }, 2200);
+};
 
   const handleScanFail = () => {
     setResult("fail");
