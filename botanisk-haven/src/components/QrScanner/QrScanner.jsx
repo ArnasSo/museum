@@ -4,52 +4,58 @@ import styles from "./QrScanner.module.css";
 
 function QrScanner({ onScan, onClose }) {
   const scannerRef = useRef(null);
+  const hasScannedRef = useRef(false);
   const qrRegionId = "qr-reader";
 
   useEffect(() => {
     const scanner = new Html5Qrcode(qrRegionId);
     scannerRef.current = scanner;
+    hasScannedRef.current = false;
 
     const startScanner = async () => {
       try {
         await scanner.start(
-          { facingMode: "environment" }, // back camera
+          { facingMode: "environment" },
           {
             fps: 10,
-            qrbox: 250,
+            qrbox: { width: 250, height: 250 },
           },
           (decodedText) => {
-            handleScan(decodedText);
+            if (hasScannedRef.current) {
+              return;
+            }
+
+            hasScannedRef.current = true;
+
+            scanner
+              .stop()
+              .then(() => {
+                scanner.clear();
+                onScan(decodedText);
+              })
+              .catch(() => {
+                onScan(decodedText);
+              });
           },
           () => {}
         );
       } catch (err) {
         console.error("Camera error:", err);
+        alert("Could not open camera.");
       }
     };
 
     startScanner();
 
     return () => {
-      scanner
-        .stop()
-        .then(() => scanner.clear())
-        .catch(() => {});
+      if (scannerRef.current?.isScanning) {
+        scannerRef.current
+          .stop()
+          .then(() => scannerRef.current.clear())
+          .catch(() => {});
+      }
     };
-  }, []);
-
-  const handleScan = (decodedText) => {
-    if (!scannerRef.current) return;
-
-    scannerRef.current
-      .stop()
-      .then(() => {
-        onScan(decodedText);
-      })
-      .catch(() => {
-        onScan(decodedText);
-      });
-  };
+  }, [onScan]);
 
   return (
     <div className={styles.overlay}>

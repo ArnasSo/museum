@@ -24,11 +24,14 @@ function HuntScreen({
   }, [plant]);
 
   const handleFakeScan = () => {
-    if (!scanValue.trim()) {
+    const typedValue = scanValue.trim();
+    const expectedValue = plant.qr_code.trim();
+
+    if (!typedValue) {
       return;
     }
 
-    if (scanValue.trim() === plant.qr_code) {
+    if (typedValue === expectedValue) {
       onScanSuccess();
     } else {
       onScanFail();
@@ -36,12 +39,14 @@ function HuntScreen({
   };
 
   const handleRealScan = (decodedText) => {
-    console.log("SCANNED:", decodedText);
-    console.log("EXPECTED:", plant.qr_code);
+    const scannedValue = String(decodedText).trim();
+    const expectedValue = String(plant.qr_code).trim();
 
     setShowScanner(false);
 
-    if (decodedText.trim() === plant.qr_code) {
+    alert(`Scanned: ${scannedValue}\nExpected: ${expectedValue}`);
+
+    if (scannedValue === expectedValue) {
       onScanSuccess();
     } else {
       onScanFail();
