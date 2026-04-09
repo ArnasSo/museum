@@ -1,14 +1,102 @@
 [
   {
     "id": 1,
-    "name": "Water Lily",
-    "hint": "Look for a plant that floats on water.",
-    "qrCode": "water-lily-01"
+    "name": "Tree Houseleek",
+    "climate": "Mediterranean",
+    "likes": "Lots of sun, very little water",
+    "introduction": "This plant stores water in its thick leaves, so it can survive long dry periods.",
+    "fun_fact": "It can grow on rocks and walls, almost like it doesn’t need soil!",
+    "hint": "Look for a sunny, dry area with rocks or walls. It might be growing where other plants can’t!",
+    "qr_code": "qr_tree_houseleek_01"
   },
   {
     "id": 2,
-    "name": "Rose",
-    "hint": "Find the flower with petals and thorns.",
-    "qrCode": "rose-01"
+    "name": "Dragon Tree",
+    "climate": "Dry desert",
+    "likes": "Warm temperatures and little water",
+    "introduction": "A strange tree with an umbrella shape that helps it survive in harsh climates.",
+    "fun_fact": "If you cut it, red sap comes out that looks like dragon’s blood!",
+    "hint": "Search in the dry, desert-like area for a tree shaped like a giant umbrella.",
+    "qr_code": "qr_dragon_tree_02"
+  },
+  {
+    "id": 3,
+    "name": "Arum Lily",
+    "climate": "Humid mountain forests",
+    "likes": "Moist soil and some shade",
+    "introduction": "A beautiful plant with large white flowers that love damp environments.",
+    "fun_fact": "Its flower isn’t just one petal, it’s actually a curled leaf!",
+    "hint": "Look in a cool, shady and slightly wet area — maybe near water or mist.",
+    "qr_code": "qr_arum_lily_03"
+  },
+  {
+    "id": 4,
+    "name": "Blue Gum",
+    "climate": "Mediterranean",
+    "likes": "Sun and moderate water",
+    "introduction": "A fast-growing tree known for its strong smell and smooth bark.",
+    "fun_fact": "Koalas love eating eucalyptus leaves, even though they’re poisonous to most animals!",
+    "hint": "Try to smell your way to it! Look for a tall tree in a sunny area with a fresh scent.",
+    "qr_code": "qr_blue_gum_04"
+  },
+  {
+    "id": 5,
+    "name": "Pebble Plants",
+    "climate": "Dry desert",
+    "likes": "Very little water and lots of sun",
+    "introduction": "These tiny plants look exactly like stones to avoid being eaten.",
+    "fun_fact": "They can \"disappear\" in the desert because they blend in so well!",
+    "hint": "Look closely at the ground in a dry area — are those stones… or plants?",
+    "qr_code": "qr_pebble_plants_05"
+  },
+  {
+    "id": 6,
+    "name": "Donkey’s Tail",
+    "climate": "Dry desert",
+    "likes": "Sunlight and little water",
+    "introduction": "A hanging plant with long stems full of thick, juicy leaves.",
+    "fun_fact": "Its leaves fall off super easily, even a small touch can make them drop!",
+    "hint": "Look up! This plant likes to hang down from pots or ledges.",
+    "qr_code": "qr_donkeys_tail_06"
+  },
+  {
+    "id": 7,
+    "name": "Angel’s Trumpet",
+    "climate": "Humid mountain forests",
+    "likes": "Warmth, sun, and lots of water",
+    "introduction": "A plant with big, hanging flowers shaped like trumpets.",
+    "fun_fact": "It smells amazing at night to attract insects, but it’s actually poisonous!",
+    "hint": "Look for big, hanging flowers — like trumpets pointing down from a bush or tree.",
+    "qr_code": "qr_angels_trumpet_07"
+  },
+  {
+    "id": 8,
+    "name": "Indian Clock Vine",
+    "climate": "Tropical rainforest",
+    "likes": "Warm, humid air and support to climb on",
+    "introduction": "A climbing plant with colorful, tube-shaped flowers.",
+    "fun_fact": "Its flowers twist as they grow, like they’re slowly turning to \"look around\"!",
+    "hint": "Search for a climbing plant wrapping around something — maybe a wall or a pole.",
+    "qr_code": "qr_indian_clock_vine_08"
+  },
+  {
+    "id": 9,
+    "name": "Peladera",
+    "climate": "Tropical rainforest",
+    "likes": "Warmth, humidity, and lots of water",
+    "introduction": "A tropical plant that grows fruit similar to papaya.",
+    "fun_fact": "Its fruit grows straight out of the trunk, not the branches, almost like it’s glued on!",
+    "hint": "Look for a tree where fruits grow directly on the trunk — not on branches!",
+    "qr_code": "qr_peladera_09"
+  },
+  {
+    "id": 10,
+    "name": "Giant Water Lilies",
+    "climate": "Tropical rainforest",
+    "likes": "Warm water and lots of sunlight",
+    "introduction": "Huge floating plants with giant round leaves.",
+    "fun_fact": "Their leaves are so strong they can hold small animals, even a child! But please don’t try it out ;)",
+    "hint": "Find a pond or water area and look for giant round leaves floating on the surface.",
+    "qr_code": "qr_giant_water_lilies_10"
   }
 ]
