@@ -1,5 +1,5 @@
 import styles from "./RoundIntroScreen.module.css";
-import mascotExcited from "../../assets/images/mascots/mascot-excited.png";
+import mascotExcited from "../../assets/mascots/mascot-excited.png";
 
 function RoundIntroScreen({ plant, roundNumber, totalRounds, onStartRound }) {
   return (
