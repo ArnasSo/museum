@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import styles from "./HuntScreen.module.css";
 import PlantCard from "../PlantCard/PlantCard";
 import ResultMessage from "../ResultMessage/ResultMessage";
@@ -16,6 +16,27 @@ function HuntScreen({
   const [showHint, setShowHint] = useState(false);
   const [scanValue, setScanValue] = useState("");
   const [showScanner, setShowScanner] = useState(false);
+
+  const mascotImage = useMemo(() => {
+    if (result === "success") {
+      return new URL("../../assets/mascots/mascot-excited.png", import.meta.url)
+        .href;
+    }
+
+    if (result === "fail") {
+      return new URL("../../assets/mascots/mascot-confused.png", import.meta.url)
+        .href;
+    }
+
+    return new URL("../../assets/mascots/mascot-happy.png", import.meta.url)
+      .href;
+  }, [result]);
+
+  const mascotAlt = useMemo(() => {
+    if (result === "success") return "Excited mascot";
+    if (result === "fail") return "Confused mascot";
+    return "Happy mascot";
+  }, [result]);
 
   const handleFakeScan = () => {
     if (!scanValue.trim()) {
@@ -46,6 +67,10 @@ function HuntScreen({
           Hunt {roundNumber} / {totalRounds}
         </p>
 
+        <div className={styles.mascotWrap}>
+          <img src={mascotImage} alt={mascotAlt} className={styles.mascot} />
+        </div>
+
         <PlantCard plant={plant} />
 
         <div className={styles.actions}>
@@ -71,24 +96,26 @@ function HuntScreen({
           </div>
         )}
 
-        <div className={styles.testBox}>
-          <label className={styles.testLabel} htmlFor="qr-test-input">
-            Temporary QR test input
-          </label>
+        {!result && (
+          <div className={styles.testBox}>
+            <label className={styles.testLabel} htmlFor="qr-test-input">
+              Temporary QR test input
+            </label>
 
-          <input
-            id="qr-test-input"
-            className={styles.input}
-            type="text"
-            placeholder={`Type ${plant.qr_code}`}
-            value={scanValue}
-            onChange={(event) => setScanValue(event.target.value)}
-          />
+            <input
+              id="qr-test-input"
+              className={styles.input}
+              type="text"
+              placeholder={`Type ${plant.qr_code}`}
+              value={scanValue}
+              onChange={(event) => setScanValue(event.target.value)}
+            />
 
-          <button className={styles.testButton} onClick={handleFakeScan}>
-            Check QR
-          </button>
-        </div>
+            <button className={styles.testButton} onClick={handleFakeScan}>
+              Check QR
+            </button>
+          </div>
+        )}
 
         {result && (
           <ResultMessage

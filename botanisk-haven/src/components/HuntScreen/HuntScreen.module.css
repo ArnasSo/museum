@@ -101,3 +101,15 @@
   background: #40916c;
   color: white;
 }
+
+.mascotWrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.mascot {
+  width: 120px;
+  height: auto;
+  display: block;
+}

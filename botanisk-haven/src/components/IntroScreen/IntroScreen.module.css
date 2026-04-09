@@ -3,8 +3,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  background: #f6fff3;
+  padding: 24px 18px;
+  background: #eefbea;
 }
 
 .card {
@@ -16,37 +16,57 @@
   gap: 18px;
 }
 
-.mascotPlaceholder {
-  width: 180px;
-  height: 180px;
-  border-radius: 24px;
-  background: #d8f3dc;
+.mascotWrap {
   display: flex;
-  align-items: center;
   justify-content: center;
-  text-align: center;
-  color: #2d6a4f;
-  font-weight: 700;
-  padding: 12px;
+}
+
+.mascot {
+  width: min(180px, 55vw);
+  height: auto;
+  display: block;
 }
 
 .bubble {
+  position: relative;
   width: 100%;
-  background: white;
+  background: #ffffff;
   border-radius: 24px;
-  padding: 18px;
-  font-size: 1rem;
+  padding: 18px 20px;
+  color: #2d6a4f;
   line-height: 1.5;
-  color: #23412d;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.bubble::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
 }
 
 .button {
   border: none;
   border-radius: 999px;
   padding: 14px 22px;
-  background: #40916c;
-  color: white;
   font-size: 1rem;
   font-weight: 700;
+  background: #52b788;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  max-width: 240px;
+}
+
+.button:hover {
+  background: #40916c;
+}
+
+.button:active {
+  transform: translateY(1px);
 }

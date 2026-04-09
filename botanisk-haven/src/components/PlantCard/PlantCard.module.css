@@ -11,17 +11,20 @@
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
 }
 
-.imagePlaceholder {
-  aspect-ratio: 4 / 4.5;
-  border-radius: 16px;
-  background: #d8f3dc;
+.imageWrap {
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  text-align: center;
-  color: #2d6a4f;
-  font-weight: 700;
-  padding: 16px;
+}
+
+.image {
+  width: 100%;
+  max-width: 320px;
+  max-height: 320px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 16px;
 }
 
 .content {
