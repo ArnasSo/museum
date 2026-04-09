@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Water Lily",
+    "hint": "Look for a plant that floats on water.",
+    "qrCode": "water-lily-01"
+  },
+  {
+    "id": 2,
+    "name": "Rose",
+    "hint": "Find the flower with petals and thorns.",
+    "qrCode": "rose-01"
+  }
+]
