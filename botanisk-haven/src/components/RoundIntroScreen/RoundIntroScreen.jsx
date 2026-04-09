@@ -1,4 +1,5 @@
 import styles from "./RoundIntroScreen.module.css";
+import mascotExcited from "../../assets/images/mascot-excited.png";
 
 function RoundIntroScreen({ plant, roundNumber, totalRounds, onStartRound }) {
   return (
@@ -8,7 +9,11 @@ function RoundIntroScreen({ plant, roundNumber, totalRounds, onStartRound }) {
           Hunt {roundNumber} / {totalRounds}
         </p>
 
-        <div className={styles.mascot}>Mascot PNG here</div>
+        <img
+          src={mascotExcited}
+          alt="Mascot guide"
+          className={styles.mascot}
+        />
 
         <div className={styles.bubble}>
           <p className={styles.text}>

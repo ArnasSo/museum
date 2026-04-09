@@ -25,16 +25,10 @@
 
 .mascot {
   width: 190px;
-  height: 190px;
-  border-radius: 24px;
-  background: #d8f3dc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #2d6a4f;
-  font-weight: 700;
-  text-align: center;
-  padding: 12px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .bubble {
