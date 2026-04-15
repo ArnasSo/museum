@@ -6,7 +6,6 @@
   gap: 12px;
 }
 
-
 .polaroid {
   min-height: 0;
   background: #fffdf8;
@@ -48,7 +47,7 @@
 
 .title {
   margin: 0;
-  font-size: clamp(1.6rem, 4vw, 2rem);
+  font-size: 32px;
   line-height: 1.05;
   font-weight: 900;
   color: #2a2a2a;
@@ -56,7 +55,7 @@
 
 .introduction {
   margin: 0;
-  font-size: 0.98rem;
+  font-size: 16px;
   line-height: 1.4;
   color: #4c4c4c;
   display: -webkit-box;
@@ -88,7 +87,7 @@
 }
 
 .metaLabel {
-  font-size: 0.74rem;
+  font-size: 12px;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -96,41 +95,14 @@
 }
 
 .metaValue {
-  font-size: 0.96rem;
+  font-size: 15px;
   font-weight: 800;
   line-height: 1.25;
   color: #2f2f2f;
 }
 
-@media (max-height: 760px) {
-  .polaroid {
-    padding: 12px 12px 18px;
-  }
-
-  .image {
-    max-height: 30dvh;
-  }
-
-  .title {
-    font-size: 1.45rem;
-  }
-
-  .introduction {
-    font-size: 0.92rem;
-    -webkit-line-clamp: 2;
-  }
-
-  .metaPill {
-    padding: 9px 12px;
-  }
-
-  .metaValue {
-    font-size: 0.9rem;
-  }
-}
-
 .metaEmoji {
-  font-size: 1.35rem;
+  font-size: 22px;
   line-height: 1;
 }
 
@@ -151,12 +123,12 @@
 }
 
 .likeEmoji {
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 1;
 }
 
 .likeText {
-  font-size: 0.82rem;
+  font-size: 13px;
   font-weight: 800;
   color: #444;
   line-height: 1;
