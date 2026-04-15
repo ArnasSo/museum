@@ -1,17 +1,20 @@
 import styles from "./ResultMessage.module.css";
 import mascotExcited from "../../assets/mascots/mascot-excited.png";
 import mascotConfused from "../../assets/mascots/mascot-confused.png";
-import butterflyOpen from "../../assets/images/butterfly-open.svg";
-import butterflyClosed from "../../assets/images/butterfly-closed.svg";
 
 function ResultMessage({ type, plantName, onTryAgain, onContinue }) {
   if (type === "success") {
     return (
       <div className={`${styles.message} ${styles.success}`}>
-        
-        <div className={styles.butterflies} aria-hidden="true">
-          <img src={butterflyOpen} className={`${styles.butterfly} ${styles.open}`} />
-          <img src={butterflyClosed} className={`${styles.butterfly} ${styles.closed}`} />
+        <div className={styles.confetti} aria-hidden="true">
+          <span className={`${styles.piece} ${styles.orange}`}></span>
+          <span className={`${styles.piece} ${styles.yellow}`}></span>
+          <span className={`${styles.piece} ${styles.green}`}></span>
+          <span className={`${styles.piece} ${styles.blue}`}></span>
+          <span className={`${styles.piece} ${styles.orange}`}></span>
+          <span className={`${styles.piece} ${styles.yellow}`}></span>
+          <span className={`${styles.piece} ${styles.green}`}></span>
+          <span className={`${styles.piece} ${styles.blue}`}></span>
         </div>
 
         <img
