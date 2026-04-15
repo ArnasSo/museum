@@ -92,6 +92,8 @@
   position: absolute;
   width: 40px;
   opacity: 0.9;
+  transform-origin: center;
+  animation: flapWing 0.25s ease-in-out infinite;
 }
 
 .open {
@@ -269,6 +271,20 @@
 
   50% {
     transform: translateX(-50%) scaleX(0.72) scaleY(0.92);
+  }
+}
+
+@keyframes flapWing {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    transform: scale(1.05, 0.92) rotate(-2deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
   }
 }
 
