@@ -6,14 +6,42 @@ import butterflyClosed from "../../assets/images/butterfly-closed.svg";
 
 function ResultMessage({ type, plantName, onTryAgain, onContinue }) {
   if (type === "success") {
+    const butterflies = Array.from({ length: 18 }).map((_, i) => ({
+  id: i,
+  type: Math.random() > 0.5 ? "open" : "closed",
+  delay: Math.random() * 6,
+  duration: 8 + Math.random() * 6,
+  startX: Math.random() * 100,
+  drift: (Math.random() - 0.5) * 300,
+  size: 0.6 + Math.random() * 0.8,
+}));
+
     return (
       <div className={`${styles.message} ${styles.success}`}>
-        
+        {/* 🦋 butterflies */}
         <div className={styles.butterflies} aria-hidden="true">
-          <img src={butterflyOpen} className={`${styles.butterfly} ${styles.open}`} />
-          <img src={butterflyClosed} className={`${styles.butterfly} ${styles.closed}`} />
-        </div>
+  {butterflies.map((b) => (
+    <div
+      key={b.id}
+      className={styles.butterflyWrapper}
+      style={{
+        left: `${b.startX}%`,
+        animationDelay: `${b.delay}s`,
+        animationDuration: `${b.duration}s`,
+        "--drift": `${b.drift}px`,
+        "--size": b.size,
+      }}
+    >
+      <img
+        src={b.type === "open" ? butterflyOpen : butterflyClosed}
+        className={styles.butterfly}
+        alt=""
+      />
+    </div>
+  ))}
+</div>
 
+        {/* 🧍 mascot */}
         <img
           src={mascotExcited}
           alt="Happy mascot"
@@ -26,7 +54,10 @@ function ResultMessage({ type, plantName, onTryAgain, onContinue }) {
           Yay! You found <strong>{plantName}</strong>.
         </p>
 
-        <button className={`${styles.button} ${styles.successButton}`} onClick={onContinue}>
+        <button
+          className={`${styles.button} ${styles.successButton}`}
+          onClick={onContinue}
+        >
           Continue
         </button>
       </div>
@@ -48,7 +79,10 @@ function ResultMessage({ type, plantName, onTryAgain, onContinue }) {
           That was not the right plant yet. Let’s try again.
         </p>
 
-        <button className={`${styles.button} ${styles.failButton}`} onClick={onTryAgain}>
+        <button
+          className={`${styles.button} ${styles.failButton}`}
+          onClick={onTryAgain}
+        >
           Try again
         </button>
       </div>
