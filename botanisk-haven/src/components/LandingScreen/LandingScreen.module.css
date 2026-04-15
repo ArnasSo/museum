@@ -3,28 +3,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px;
+  padding: 10px;
   cursor: pointer;
 }
 
 .card {
-  width: min(100%, 430px);
-  min-height: min(100dvh - 28px, 860px);
-  display: grid;
-  grid-template-rows: auto auto auto 1fr auto;
-  justify-items: center;
+  width: 355px;
+  min-height: calc(100dvh - 20px);
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 14px;
-  padding: 24px 20px 28px;
-  border-radius: 32px;
+  justify-content: flex-start;
+  padding: 22px 18px 28px;
+  border-radius: 30px;
   position: relative;
   overflow: hidden;
   text-align: center;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.82));
-  backdrop-filter: blur(8px);
+  background: linear-gradient(
+    180deg,
+    rgba(219, 223, 205, 0.95) 0%,
+    rgba(234, 229, 207, 0.95) 34%,
+    rgba(243, 238, 223, 0.96) 68%,
+    rgba(238, 236, 223, 0.95) 100%
+  );
   box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.12),
+    0 18px 32px rgba(0, 0, 0, 0.14),
     inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
@@ -32,74 +35,60 @@
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at top left, rgba(241, 145, 59, 0.18), transparent 24%),
-    radial-gradient(circle at top right, rgba(229, 209, 115, 0.2), transparent 24%),
-    radial-gradient(circle at bottom left, rgba(171, 204, 59, 0.18), transparent 26%),
-    radial-gradient(circle at bottom right, rgba(83, 177, 226, 0.18), transparent 24%);
   pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.45), transparent 18%),
+    radial-gradient(circle at 20% 30%, rgba(186, 196, 145, 0.18), transparent 24%),
+    radial-gradient(circle at 80% 24%, rgba(197, 212, 164, 0.16), transparent 26%),
+    radial-gradient(circle at 50% 80%, rgba(255, 244, 214, 0.14), transparent 28%);
 }
 
-.topDecor {
-  position: absolute;
-  top: -18px;
-  right: -12px;
-  width: 140px;
-  height: 140px;
-  border-radius: 999px;
-  background: rgba(229, 209, 115, 0.35);
-  filter: blur(8px);
-}
-
-.kicker {
+.logoWrap {
   position: relative;
   z-index: 1;
-  margin: 0;
-  font-size: 1.12rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  color: #f1913b;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 6px;
+  margin-bottom: 22px;
+}
+
+.logo {
+  width: 285px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.14));
 }
 
 .title {
   position: relative;
   z-index: 1;
   margin: 0;
-  font-size: clamp(2.8rem, 9vw, 4.2rem);
-  line-height: 0.95;
-  font-weight: 900;
-  color: #5a4032;
-  text-shadow: 0 3px 0 rgba(255, 255, 255, 0.35);
-}
-
-.subtitle {
-  position: relative;
-  z-index: 1;
-  margin: 0;
-  max-width: 18ch;
-  font-size: clamp(1.05rem, 3.8vw, 1.3rem);
-  line-height: 1.35;
+  width: 100%;
+  font-size: 32px;
+  line-height: 1.18;
   font-weight: 700;
-  color: #5f5b57;
+  color: #111111;
+  text-align: center;
 }
 
 .mascotWrap {
   position: relative;
   z-index: 1;
-  display: flex;
-  align-items: end;
-  justify-content: center;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: 24px;
 }
 
 .mascot {
-  width: min(250px, 70vw);
-  max-height: 34dvh;
+  width: 300px;
   height: auto;
-  object-fit: contain;
   display: block;
-  filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.14));
-  animation: float 2.8s ease-in-out infinite;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.12));
 }
 
 .ctaWrap {
@@ -112,54 +101,20 @@
 
 .cta {
   margin: 0;
-  min-width: 250px;
-  padding: 18px 20px;
-  border-radius: 22px;
-  background: #abcc3b;
+  min-width: 220px;
+  padding: 18px 26px;
+  border-radius: 18px;
+  background: #a9cc39;
   color: #ffffff;
-  font-size: clamp(1.1rem, 4vw, 1.35rem);
-  font-weight: 900;
-  line-height: 1.1;
-  box-shadow: 0 12px 22px rgba(171, 204, 59, 0.3);
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  box-shadow:
+    0 10px 20px rgba(169, 204, 57, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 .screen:active .cta {
   transform: scale(0.98);
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-@media (max-height: 760px) {
-  .card {
-    gap: 10px;
-    padding: 18px 16px 22px;
-  }
-
-  .title {
-    font-size: clamp(2.4rem, 8vw, 3.4rem);
-  }
-
-  .subtitle {
-    font-size: 0.98rem;
-  }
-
-  .mascot {
-    width: min(210px, 58vw);
-    max-height: 28dvh;
-  }
-
-  .cta {
-    min-width: 220px;
-    padding: 16px 18px;
-    font-size: 1rem;
-  }
 }

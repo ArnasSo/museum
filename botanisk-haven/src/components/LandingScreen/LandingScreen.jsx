@@ -6,6 +6,11 @@ function LandingScreen({ onStart }) {
     import.meta.url
   ).href;
 
+  const logoImage = new URL(
+    "../../assets/images/site-logo.png",
+    import.meta.url
+  ).href;
+
   return (
     <section
       className={styles.screen}
@@ -14,21 +19,26 @@ function LandingScreen({ onStart }) {
       tabIndex={0}
       onKeyDown={(event) => {
         if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
           onStart();
         }
       }}
       aria-label="Start Plant Hunt"
     >
       <div className={styles.card}>
-        <div className={styles.topDecor}></div>
+        <div className={styles.logoWrap}>
+          <img
+            src={logoImage}
+            alt="Plant Hunt logo"
+            className={styles.logo}
+          />
+        </div>
 
-        <p className={styles.kicker}>Museum Adventure</p>
-
-        <h1 className={styles.title}>Plant Hunt</h1>
-
-        <p className={styles.subtitle}>
-          Explore, find, scan, and win!
-        </p>
+        <h1 className={styles.title}>
+          Start your
+          <br />
+          exciting journey!
+        </h1>
 
         <div className={styles.mascotWrap}>
           <img
