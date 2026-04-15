@@ -9,15 +9,16 @@
 .polaroid {
   min-height: 0;
   background: #fffdf8;
-  border-radius: 28px;
-  padding: 14px 14px 22px;
+  padding: 14px 14px 80px;
   box-shadow:
     0 14px 28px rgba(0, 0, 0, 0.1),
     0 4px 8px rgba(0, 0, 0, 0.04);
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: rotate(-1deg);
+  transform: rotate(-2deg);
+  margin-top: 4px;
+  margin-bottom: 12px;
 }
 
 .imageWrap {
@@ -28,17 +29,14 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-radius: 18px;
   background: #f8f4ea;
 }
 
 .image {
   width: 100%;
-  height: 100%;
   max-height: 34dvh;
   object-fit: cover;
   display: block;
-  border-radius: 18px;
 }
 
 .content {
