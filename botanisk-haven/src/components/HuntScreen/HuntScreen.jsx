@@ -19,69 +19,18 @@ function HuntScreen({
 }) {
   const [showHint, setShowHint] = useState(false);
   const [showScanner, setShowScanner] = useState(false);
-  const [hintTick, setHintTick] = useState(0);
-  const hintTimerRef = useRef(null);
-  const hintProgressRef = useRef(null);
-
-  const HINT_DURATION = 5000;
 
   useEffect(() => {
     setShowHint(false);
     setShowScanner(false);
-    setHintTick(0);
 
-    if (hintTimerRef.current) {
-      clearTimeout(hintTimerRef.current);
-    }
-
-    if (hintProgressRef.current) {
-      clearInterval(hintProgressRef.current);
-    }
   }, [plant]);
 
-  useEffect(() => {
-    return () => {
-      if (hintTimerRef.current) {
-        clearTimeout(hintTimerRef.current);
-      }
-
-      if (hintProgressRef.current) {
-        clearInterval(hintProgressRef.current);
-      }
-    };
-  }, []);
 
   const handleShowHint = () => {
-    if (result === "success") {
-      return;
-    }
+    if (result === "success") return;
 
-    if (hintTimerRef.current) {
-      clearTimeout(hintTimerRef.current);
-    }
-
-    if (hintProgressRef.current) {
-      clearInterval(hintProgressRef.current);
-    }
-
-    setShowHint(true);
-    setHintTick(0);
-
-    const startedAt = Date.now();
-
-    hintProgressRef.current = setInterval(() => {
-      const elapsed = Date.now() - startedAt;
-      setHintTick(Math.min(elapsed, HINT_DURATION));
-    }, 50);
-
-    hintTimerRef.current = setTimeout(() => {
-      setShowHint(false);
-      setHintTick(0);
-
-      if (hintProgressRef.current) {
-        clearInterval(hintProgressRef.current);
-      }
-    }, HINT_DURATION);
+    setShowHint(prev => !prev);
   };
 
   const handleRealScan = (decodedText) => {
@@ -110,8 +59,6 @@ function HuntScreen({
     }
   };
 
-  const hintProgressWidth = `${100 - (hintTick / HINT_DURATION) * 100}%`;
-
   return (
     <section className={styles.screen}>
       <div className={styles.card}>
@@ -131,13 +78,6 @@ function HuntScreen({
             <div className={styles.hintBannerInner}>
               <p className={styles.hintLabel}>Hint</p>
               <p className={styles.hintText}>{plant.hint}</p>
-
-              <div className={styles.hintProgressTrack}>
-                <div
-                  className={styles.hintProgressBar}
-                  style={{ width: hintProgressWidth }}
-                />
-              </div>
             </div>
           </div>
         )}
