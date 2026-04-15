@@ -3,7 +3,7 @@ import styles from "./IntroScreen.module.css";
 function IntroScreen({ onStartHunt }) {
   const mascotImage = new URL(
     "../../assets/mascots/mascot-happy.png",
-    import.meta.url
+    import.meta.url,
   ).href;
 
   return (
@@ -14,22 +14,19 @@ function IntroScreen({ onStartHunt }) {
         <div className={styles.bubbleWrap}>
           <div className={styles.bubble}>
             <p className={styles.bubbleText}>
-              Welcome to the plant hunt! I will give you hints. Find the right
-              plant, scan its QR code, and complete all 5 hunts!
+              G'day, I need your help in hunting some extraordinary plants.<br/><br/>
+              Will
+              you help me?
             </p>
           </div>
         </div>
 
         <div className={styles.mascotWrap}>
-          <img
-            src={mascotImage}
-            alt="Happy mascot"
-            className={styles.mascot}
-          />
+          <img src={mascotImage} alt="Happy mascot" className={styles.mascot} />
         </div>
 
         <button className={styles.button} onClick={onStartHunt}>
-          Begin the Hunt!
+          Begin the Journey
         </button>
       </div>
     </section>

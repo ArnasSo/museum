@@ -7,12 +7,13 @@
 }
 
 .card {
-  width: min(100%, 430px);
-  min-height: min(100dvh - 28px, 860px);
+  width: 100%;
+  max-width: 430px;
+  min-height: calc(100dvh - 28px);
   display: grid;
   grid-template-rows: auto 1fr auto;
-  gap: 16px;
-  padding: 18px;
+  gap: 18px;
+  padding: 20px 18px 24px;
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(10px);
@@ -23,7 +24,6 @@
   overflow: hidden;
 }
 
-/* 🎨 soft color accents */
 .card::before {
   content: "";
   position: absolute;
@@ -35,8 +35,9 @@
   pointer-events: none;
 }
 
-/* top */
 .topBar {
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,7 +45,7 @@
 
 .kicker {
   margin: 0;
-  font-size: 0.75rem;
+  font-size: 12px;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -52,84 +53,77 @@
 }
 
 .round {
-  margin: 0;
-  font-size: 1.1rem;
+  margin: 2px 0 0;
+  font-size: 20px;
   font-weight: 900;
   color: #2c2c2c;
 }
 
-/* center */
 .center {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
+  justify-content: flex-start;
+  min-height: 0;
 }
 
 .bubble {
   width: 100%;
   background: rgba(229, 209, 115, 0.25);
-  border-radius: 30px;
-  padding: 22px 18px;
+  border-radius: 34px;
+  padding: 24px 18px;
   text-align: center;
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 .text {
   margin: 0;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.25;
   color: #5a4a43;
 }
 
 .plantName {
-  margin: 6px 0 0;
-  font-size: clamp(1.8rem, 6vw, 2.4rem);
+  margin: 8px 0 0;
+  font-size: 38px;
   font-weight: 900;
   color: #5a4032;
-  line-height: 1.1;
+  line-height: 1.05;
 }
 
 .mascot {
-  width: min(200px, 60vw);
-  max-height: 28dvh;
+  width: 300px;
+  height: auto;
   object-fit: contain;
+  display: block;
+  margin-top: auto;
+  margin-bottom: 8px;
   filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.15));
 }
 
-/* button */
 .button {
+  position: relative;
+  z-index: 1;
+  width: 100%;
   border: none;
-  border-radius: 18px;
-  padding: 18px;
-  background: #53b1e2; /* blue from palette */
-  color: white;
-  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  border-radius: 22px;
+  padding: 20px 18px;
+  background: #53b1e2;
+  color: #ffffff;
+  font-size: 28px;
   font-weight: 900;
+  line-height: 1;
   cursor: pointer;
-  box-shadow: 0 12px 20px rgba(83, 177, 226, 0.3);
+  box-shadow:
+    0 12px 20px rgba(83, 177, 226, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 .button:active {
   transform: scale(0.98);
-}
-
-/* smaller phones */
-@media (max-height: 760px) {
-  .bubble {
-    padding: 18px 14px;
-  }
-
-  .plantName {
-    font-size: 1.6rem;
-  }
-
-  .mascot {
-    width: min(160px, 50vw);
-  }
-
-  .button {
-    padding: 16px;
-    font-size: 1.2rem;
-  }
 }

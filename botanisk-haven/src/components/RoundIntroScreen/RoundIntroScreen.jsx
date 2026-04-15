@@ -36,7 +36,7 @@ function RoundIntroScreen({ plant, roundNumber, totalRounds, onStartRound }) {
         </div>
 
         <button className={styles.button} onClick={onStartRound}>
-          Let’s find it!
+          Let's find it!
         </button>
       </div>
     </section>
