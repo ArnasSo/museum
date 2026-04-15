@@ -6,19 +6,21 @@
   gap: 12px;
 }
 
+.card .polaroid {
+  margin: 5px;
+}
+
 .polaroid {
   min-height: 0;
   background: #fffdf8;
-  padding: 14px 14px 80px;
+  padding: 14px 14px 48px;
   box-shadow:
     0 14px 28px rgba(0, 0, 0, 0.1),
     0 4px 8px rgba(0, 0, 0, 0.04);
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: rotate(-2deg);
-  margin-top: 4px;
-  margin-bottom: 12px;
+  background-color: #fefefe;
 }
 
 .imageWrap {
@@ -43,6 +45,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin: 0 5px;
 }
 
 .title {
