@@ -49,7 +49,7 @@ function LandingScreen({ onStart }) {
         </div>
 
         <div className={styles.ctaWrap}>
-          <p className={styles.cta}>TAP TO START</p>
+          <p className={styles.cta}>START</p>
         </div>
       </div>
     </section>
