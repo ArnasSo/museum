@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -6,11 +7,11 @@ html, body {
 }
 
 .screen {
-  height: 100dvh; /* 🔥 use height instead of min-height */
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px; /* keep consistent with card calc */
+  padding: 14px;
   cursor: pointer;
   overflow: hidden;
 }
@@ -18,10 +19,11 @@ html, body {
 .card {
   width: 100%;
   max-width: 430px;
-  height: calc(100dvh - 28px); /* 🔥 match screen padding exactly */
-  display: flex;
-  flex-direction: column;
+  min-height: calc(100dvh - 28px);
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
   align-items: center;
+  justify-items: center;
   padding: 20px 18px 24px;
   border-radius: 32px;
   background: rgba(255, 255, 255, 0.78);
@@ -55,7 +57,7 @@ html, body {
 }
 
 .logo {
-  min-width: 275px;
+  width: 275px;
   height: auto;
   display: block;
   object-fit: contain;
@@ -68,8 +70,8 @@ html, body {
   line-height: 1.5;
   font-weight: 700;
   color: #111111;
-  margin-top: auto;
-  margin-bottom: 16px;
+  margin: 0 0 16px;
+  align-self: end;
 }
 
 .mascotWrap {
@@ -78,8 +80,7 @@ html, body {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 0;
-  margin-bottom: 24px;
+  margin: 0 0 24px;
 }
 
 .mascot {
