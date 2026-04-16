@@ -26,7 +26,7 @@ function IntroScreen({ onStartHunt }) {
         </div>
 
         <button className={styles.button} onClick={onStartHunt}>
-          Begin the Journey
+          BEGIN
         </button>
       </div>
     </section>

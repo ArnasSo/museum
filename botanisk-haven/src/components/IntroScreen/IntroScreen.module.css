@@ -1,21 +1,21 @@
 .screen {
-  min-height: 100dvh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px;
+  padding: 12px;
 }
 
 .card {
   width: 100%;
   max-width: 430px;
-  min-height: calc(100dvh - 28px);
+  min-height: calc(100svh - 24px);
   display: grid;
   grid-template-rows: auto 1fr auto auto;
   align-items: center;
   justify-items: center;
-  gap: 18px;
-  padding: 20px 18px 24px;
+  gap: 14px;
+  padding: 16px 16px calc(18px + env(safe-area-inset-bottom, 0px));
   border-radius: 32px;
   background: rgba(255, 255, 255, 0.78);
   backdrop-filter: blur(8px);
@@ -37,7 +37,6 @@
   pointer-events: none;
 }
 
-/* 🔥 BIGGER FRIENDLIER LABEL */
 .pageLabel {
   position: relative;
   z-index: 1;
@@ -50,7 +49,6 @@
   color: #b7b7b7;
 }
 
-/* BUBBLE */
 .bubbleWrap {
   width: 100%;
   display: flex;
@@ -63,10 +61,10 @@
 .bubble {
   position: relative;
   width: 100%;
-  min-height: 220px;
+  min-height: clamp(170px, 28svh, 220px);
   background: rgba(255, 255, 255, 0.95);
-  border-radius: 54px;
-  padding: 34px 26px;
+  border-radius: 42px;
+  padding: 26px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,65 +77,76 @@
 .bubble::after {
   content: "";
   position: absolute;
-  bottom: -18px;
+  bottom: -16px;
   left: 50%;
   transform: translateX(-50%);
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   background: rgba(255, 255, 255, 0.95);
   clip-path: polygon(50% 100%, 0 0, 100% 0);
 }
 
-/* 🔥 MAIN TEXT — BIG + FRIENDLY */
 .bubbleText {
   margin: 0;
-  font-size: 22px;
-  line-height: 1.4;
+  font-size: clamp(18px, 5.4vw, 22px);
+  line-height: 1.35;
   font-weight: 800;
   color: #3f332d;
   max-width: 22ch;
 }
 
-/* mascot untouched */
 .mascotWrap {
   position: relative;
   z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: -4px;
+  margin-top: -2px;
 }
 
 .mascot {
-  width: 300px;
+  width: clamp(220px, 72vw, 300px);
+  max-height: 30svh;
   height: auto;
   display: block;
   object-fit: contain;
   filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.12));
 }
 
-/* 🔥 BUTTON — BIG + FUN */
 .button {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 260px;
+  margin: 0;
+  width: min(100%, 326px);
+  min-height: 62px;
+  padding: 10px 20px;
   border: none;
-  padding: 20px 22px;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
   border-radius: 22px;
   background: #abcc3b;
   color: #ffffff;
-  font-size: 28px;
-  font-weight: 900;
+  font-size: clamp(32px, 9vw, 50px);
+  font-weight: 800;
   line-height: 1;
-  letter-spacing: 0.02em;
-  cursor: pointer;
   box-shadow:
     0 12px 20px rgba(171, 204, 59, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   transition: transform 0.12s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
 }
 
 .button:active {
   transform: translateY(3px) scale(0.97);
+} 
+
+.button:focus,
+.button:focus-visible {
+  outline: none;
+  box-shadow:
+    0 12px 20px rgba(171, 204, 59, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
