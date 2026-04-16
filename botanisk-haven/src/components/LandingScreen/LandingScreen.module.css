@@ -3,19 +3,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px;
+  padding: 12px;
 }
 
 .card {
   width: 100%;
   max-width: 430px;
-  min-height: calc(100svh - 28px);
+  min-height: calc(100svh - 24px);
   display: grid;
   grid-template-rows: auto 1fr auto auto;
   align-items: center;
   justify-items: center;
   gap: 0;
-  padding: 20px 18px 24px;
+  padding: 16px 16px calc(18px + env(safe-area-inset-bottom, 0px));
   border-radius: 32px;
   background: rgba(255, 255, 255, 0.78);
   backdrop-filter: blur(8px);
@@ -44,11 +44,11 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 16px;
+  margin-top: 8px;
 }
 
 .logo {
-  width: 275px;
+  width: clamp(220px, 70vw, 275px);
   height: auto;
   display: block;
   object-fit: contain;
@@ -57,9 +57,9 @@
 .title {
   position: relative;
   z-index: 1;
-  margin: 0 0 16px;
-  font-size: 32px;
-  line-height: 1.5;
+  margin: 0 0 12px;
+  font-size: clamp(24px, 8vw, 32px);
+  line-height: 1.25;
   font-weight: 700;
   color: #111111;
   align-self: end;
@@ -72,11 +72,12 @@
   display: flex;
   justify-content: center;
   align-items: end;
-  margin: 0 0 24px;
+  margin: 0 0 16px;
 }
 
 .mascot {
-  width: 290px;
+  width: clamp(210px, 72vw, 290px);
+  max-height: 32svh;
   height: auto;
   display: block;
   object-fit: contain;
@@ -88,18 +89,17 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 .cta {
   margin: 0;
-  width: 326px;
-  min-height: 70px;
+  width: min(100%, 326px);
+  min-height: 62px;
   padding: 10px 20px;
   border-radius: 22px;
   background: #abcc3b;
   color: #ffffff;
-  font-size: 50px;
+  font-size: clamp(32px, 9vw, 50px);
   font-weight: 800;
   line-height: 1;
   box-shadow:
