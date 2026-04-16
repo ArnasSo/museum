@@ -48,7 +48,7 @@
 
 .logo {
   min-width: 275px;
-  max-height: 230px;
+  height: auto;
   display: block;
   object-fit: contain;
 }
