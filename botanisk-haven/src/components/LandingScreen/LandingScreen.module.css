@@ -47,8 +47,8 @@
 }
 
 .logo {
-  width: 275px;
-  height: auto;
+  min-width: 275px;
+  max-height: 230px;
   display: block;
   object-fit: contain;
 }
@@ -56,12 +56,12 @@
 .title {
   position: relative;
   z-index: 1;
-  margin: 42px 0 0;
   font-size: 32px;
-  line-height: 1.2;
+  line-height: 1.5;
   font-weight: 700;
-  letter-spacing: -0.02em;
   color: #111111;
+  margin-top: auto;
+  margin-bottom: 16px;
 }
 
 .mascotWrap {
@@ -70,7 +70,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: auto;
+  margin-top: 0;
   margin-bottom: 24px;
 }
 
