@@ -1,15 +1,16 @@
 .screen {
+  min-height: 100svh;
   min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 14px;
-  cursor: pointer;
 }
 
 .card {
   width: 100%;
   max-width: 430px;
+  min-height: calc(100svh - 28px);
   min-height: calc(100dvh - 28px);
   display: grid;
   grid-template-rows: auto 1fr auto auto;
@@ -89,6 +90,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 .cta {
