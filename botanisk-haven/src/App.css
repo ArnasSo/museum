@@ -141,7 +141,7 @@ img {
   line-height: 1;
   letter-spacing: 3px;
   paint-order: stroke fill;
-  -webkit-text-stroke: 3px #000;
+  -webkit-text-stroke: 4.5px #000;
   text-shadow: none;
 }
 
