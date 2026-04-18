@@ -16,6 +16,7 @@ function App() {
   const [currentRound, setCurrentRound] = useState(0);
   const [roundStep, setRoundStep] = useState("intro");
   const [result, setResult] = useState(null);
+  const [showRewardOverlay, setShowRewardOverlay] = useState(false);
 
   const selectedPlants = useMemo(() => {
     const shuffled = [...plants].sort(() => Math.random() - 0.5);
@@ -29,6 +30,7 @@ function App() {
     setCurrentRound(0);
     setRoundStep("intro");
     setResult(null);
+    setShowRewardOverlay(false);
     setScreen("landing");
   };
 
@@ -45,6 +47,7 @@ function App() {
     setCurrentRound(0);
     setRoundStep("intro");
     setResult(null);
+    setShowRewardOverlay(false);
   };
 
   const handleGoToHunt = () => {
@@ -79,6 +82,19 @@ function App() {
     setRoundStep("hunt");
   };
 
+  const handleClaimReward = () => {
+    setShowRewardOverlay(true);
+  };
+
+  const handleCloseRewardOverlay = () => {
+    setShowRewardOverlay(false);
+  };
+
+  const rewardQrImage = new URL(
+    "./assets/images/win-qr.png",
+    import.meta.url
+  ).href;
+
   return (
     <div className="app">
       {screen === "landing" && <LandingScreen onStart={handleStartIntro} />}
@@ -109,7 +125,42 @@ function App() {
         />
       )}
 
-      {screen === "end" && <EndScreen onRestart={startNewGame} />}
+      {screen === "end" && (
+        <EndScreen
+          onClaimReward={handleClaimReward}
+          onRestart={startNewGame}
+        />
+      )}
+
+      {showRewardOverlay && (
+        <div className="rewardOverlay" onClick={handleCloseRewardOverlay}>
+          <div
+            className="rewardModal"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <p className="rewardKicker">REWARD</p>
+            <h2 className="rewardTitle">Your ice cream is here!</h2>
+
+            <img
+              src={rewardQrImage}
+              alt="Reward QR code"
+              className="rewardQr"
+            />
+
+            <p className="rewardText">
+              Scan this code at the counter to claim your prize.
+            </p>
+
+            <button
+              className="rewardCloseButton"
+              onClick={handleCloseRewardOverlay}
+              type="button"
+            >
+              <span className="rewardCloseText">CLOSE</span>
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

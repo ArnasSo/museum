@@ -134,6 +134,7 @@ function HuntScreen({
             <ResultMessage
               type={result}
               plantName={plant.name}
+              funFact={plant.fun_fact}
               onTryAgain={onTryAgain}
               onContinue={onContinue}
             />

@@ -5,20 +5,20 @@ import mascotConfused from "../../assets/mascots/mascot-confused.png";
 import butterflyOpen from "../../assets/images/butterfly-open.svg";
 import butterflyClosed from "../../assets/images/butterfly-closed.svg";
 
-function ResultMessage({ type, plantName, onTryAgain, onContinue }) {
+function ResultMessage({ type, plantName, funFact, onTryAgain, onContinue }) {
   const butterflies = useMemo(
     () =>
-      Array.from({ length: 18 }).map((_, i) => ({
+      Array.from({ length: 14 }).map((_, i) => ({
         id: i,
         delay: Math.random() * 6,
-        duration: 8 + Math.random() * 6,
+        duration: 10 + Math.random() * 6,
         startX: Math.random() * 100,
-        drift: (Math.random() - 0.5) * 320,
-        sway: 20 + Math.random() * 28,
-        tilt: -14 + Math.random() * 28,
-        size: 0.6 + Math.random() * 0.8,
-        flapDuration: 0.28 + Math.random() * 0.42,
-        flapDelay: Math.random() * 1.2,
+        drift: (Math.random() - 0.5) * 260,
+        sway: 16 + Math.random() * 20,
+        tilt: -10 + Math.random() * 20,
+        size: 0.6 + Math.random() * 0.6,
+        flapDuration: 0.35 + Math.random() * 0.4,
+        flapDelay: Math.random() * 1,
       })),
     []
   );
@@ -26,6 +26,7 @@ function ResultMessage({ type, plantName, onTryAgain, onContinue }) {
   if (type === "success") {
     return (
       <div className={`${styles.message} ${styles.success}`}>
+        {/* 🦋 Butterflies */}
         <div className={styles.butterflies} aria-hidden="true">
           {butterflies.map((b) => (
             <div
@@ -59,19 +60,31 @@ function ResultMessage({ type, plantName, onTryAgain, onContinue }) {
           ))}
         </div>
 
-        <img src={mascotExcited} alt="Happy mascot" className={styles.mascot} />
+        <p className={`${styles.kicker} ${styles.successKicker}`}>EUREKA!</p>
 
-        <p className={styles.title}>You found it!</p>
+        <img
+          src={mascotExcited}
+          alt="Happy mascot"
+          className={`${styles.mascot} ${styles.successMascot}`}
+        />
 
-        <p className={styles.text}>
-          Yay! You found <strong>{plantName}</strong>.
-        </p>
+        <div className={styles.factCard}>
+          <div className={styles.factHeader}>
+            <span className={styles.factEmoji}>💡</span>
+            <span className={styles.factTitle}>DID YOU KNOW?</span>
+          </div>
+
+          <div className={styles.factBody}>
+            <p className={styles.factText}>{funFact}</p>
+          </div>
+        </div>
 
         <button
-          className={`${styles.button} ${styles.successButton}`}
+          className={`${styles.cta} ${styles.successButton}`}
           onClick={onContinue}
+          type="button"
         >
-          Continue
+          <span className={styles.ctaText}>NEXT PLANT</span>
         </button>
       </div>
     );
@@ -80,23 +93,28 @@ function ResultMessage({ type, plantName, onTryAgain, onContinue }) {
   if (type === "fail") {
     return (
       <div className={`${styles.message} ${styles.fail}`}>
+        <p className={`${styles.kicker} ${styles.failKicker}`}>OOPS!</p>
+
+        <div className={styles.failSpeechWrap}>
+          <div className={styles.speechBubble}>
+            <p className={styles.speechText}>
+              That&apos;s not the right plant.
+            </p>
+          </div>
+        </div>
+
         <img
           src={mascotConfused}
           alt="Confused mascot"
-          className={styles.mascot}
+          className={`${styles.mascot} ${styles.failMascot}`}
         />
 
-        <p className={styles.title}>Almost!</p>
-
-        <p className={styles.text}>
-          That was not the right plant yet. Let’s try again.
-        </p>
-
         <button
-          className={`${styles.button} ${styles.failButton}`}
+          className={`${styles.cta} ${styles.failButton}`}
           onClick={onTryAgain}
+          type="button"
         >
-          Try again
+          <span className={styles.ctaText}>TRY AGAIN</span>
         </button>
       </div>
     );

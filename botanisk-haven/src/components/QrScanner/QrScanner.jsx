@@ -37,7 +37,7 @@ function QrScanner({ onScan, onClose }) {
                 onScan(decodedText);
               });
           },
-          () => {}
+          () => { }
         );
       } catch (err) {
         console.error("Camera error:", err);
@@ -52,7 +52,7 @@ function QrScanner({ onScan, onClose }) {
         scannerRef.current
           .stop()
           .then(() => scannerRef.current.clear())
-          .catch(() => {});
+          .catch(() => { });
       }
     };
   }, [onScan]);
@@ -63,7 +63,7 @@ function QrScanner({ onScan, onClose }) {
         <div id={qrRegionId} className={styles.reader}></div>
 
         <button className={styles.closeButton} onClick={onClose}>
-          Close
+          <span className={styles.closeText}>CLOSE</span>
         </button>
       </div>
     </div>

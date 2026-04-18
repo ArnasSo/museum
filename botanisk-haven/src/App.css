@@ -35,3 +35,116 @@ h3,
 img {
   max-width: 100%;
 }
+
+.rewardOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(28, 32, 36, 0.55);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 2000;
+}
+
+.rewardModal {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  padding: 22px 18px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.rewardModal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right, rgba(241, 145, 59, 0.12), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(83, 177, 226, 0.12), transparent 26%),
+    radial-gradient(circle at bottom right, rgba(171, 204, 59, 0.14), transparent 28%);
+  pointer-events: none;
+}
+
+.rewardKicker,
+.rewardTitle,
+.rewardQr,
+.rewardText,
+.rewardCloseButton {
+  position: relative;
+  z-index: 1;
+}
+
+.rewardKicker {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f1913b;
+}
+
+.rewardTitle {
+  margin: 0 0 16px;
+  font-size: clamp(24px, 7vw, 32px);
+  line-height: 1.1;
+  font-weight: 800;
+  color: #111111;
+}
+
+.rewardQr {
+  width: min(100%, 220px);
+  height: auto;
+  display: block;
+  margin: 0 auto 16px;
+  border-radius: 18px;
+}
+
+.rewardText {
+  margin: 0 0 18px;
+  font-size: 16px;
+  line-height: 1.35;
+  color: #3f3f3f;
+}
+
+.rewardCloseButton {
+  margin: 0 auto;
+  width: min(100%, 280px);
+  min-height: 62px;
+  padding: 10px 20px;
+  border-radius: 22px;
+  border: 3px solid #000;
+  background: #53b1e2;
+  box-shadow:
+    0 12px 20px rgba(83, 177, 226, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.rewardCloseText {
+  color: #fff;
+  font-size: clamp(24px, 7vw, 38px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 3px;
+  paint-order: stroke fill;
+  -webkit-text-stroke: 3px #000;
+  text-shadow: none;
+}
+
+.rewardCloseButton:active {
+  transform: translateY(3px) scale(0.97);
+}

@@ -1,35 +1,55 @@
 import styles from "./EndScreen.module.css";
-import mascotExcited from "../../assets/mascots/mascot-excited.png";
 
-function EndScreen({ onRestart }) {
+function EndScreen({ onClaimReward, onRestart }) {
+  const mascotEnd = new URL(
+    "../../assets/mascots/mascot-end.png",
+    import.meta.url
+  ).href;
+
+  const mascotStars = new URL(
+    "../../assets/mascots/mascot-stars.png",
+    import.meta.url
+  ).href;
+
   return (
     <section className={styles.screen}>
       <div className={styles.card}>
-        <div className={styles.confetti} aria-hidden="true">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <span key={i} className={styles.piece}></span>
-          ))}
+        <div className={styles.content}>
+          <p className={styles.kicker}>BIG WIN</p>
+
+          <h2 className={styles.title}>Hunt completed!</h2>
+
+          <img
+            src={mascotStars}
+            alt=""
+            className={styles.stars}
+            aria-hidden="true"
+          />
+
+          <img
+            src={mascotEnd}
+            alt="Celebrating mascot"
+            className={styles.mascot}
+          />
         </div>
 
-        <p className={styles.kicker}>Completed!</p>
+        <div className={styles.actions}>
+          <button
+            className={`${styles.cta} ${styles.primaryCta}`}
+            onClick={onClaimReward}
+            type="button"
+          >
+            <span className={styles.ctaText}>CLAIM REWARD</span>
+          </button>
 
-        <h2 className={styles.title}>
-          You found them all!
-        </h2>
-
-        <img
-          src={mascotExcited}
-          alt="Happy mascot"
-          className={styles.mascot}
-        />
-
-        <p className={styles.text}>
-          Amazing job! You finished the whole plant hunt 🎉
-        </p>
-
-        <button className={styles.button} onClick={onRestart}>
-          Play again
-        </button>
+          <button
+            className={`${styles.cta} ${styles.secondaryCta}`}
+            onClick={onRestart}
+            type="button"
+          >
+            <span className={styles.ctaText}>PLAY AGAIN</span>
+          </button>
+        </div>
       </div>
     </section>
   );
