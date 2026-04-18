@@ -19,13 +19,8 @@ function RoundIntroScreen({ plant, roundNumber, totalRounds, onStartRound }) {
 
         <div className={styles.center}>
           <div className={styles.bubble}>
-            <p className={styles.text}>
-              Can you find
-            </p>
-
-            <p className={styles.plantName}>
-              {plant.name}?
-            </p>
+            <p className={styles.text}>Can you find</p>
+            <p className={styles.plantName}>{plant.name}?</p>
           </div>
 
           <img
@@ -35,9 +30,11 @@ function RoundIntroScreen({ plant, roundNumber, totalRounds, onStartRound }) {
           />
         </div>
 
-        <button className={styles.button} onClick={onStartRound}>
-          Let's find it!
-        </button>
+        <div className={styles.ctaWrap}>
+          <button className={styles.cta} onClick={onStartRound} type="button">
+            <span className={styles.ctaText}>LET&apos;S GO!</span>
+          </button>
+        </div>
       </div>
     </section>
   );

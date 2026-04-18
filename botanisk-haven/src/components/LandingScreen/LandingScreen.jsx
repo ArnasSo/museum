@@ -48,9 +48,9 @@ function LandingScreen({ onStart }) {
           />
         </div>
 
-        <div className={styles.ctaWrap}>
-          <p className={styles.cta}>START</p>
-        </div>
+        <p className={styles.cta}>
+  <span className={styles.ctaText}>START</span>
+</p>
       </div>
     </section>
   );

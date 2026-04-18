@@ -11,10 +11,10 @@
   max-width: 430px;
   min-height: calc(100svh - 24px);
   display: grid;
-  grid-template-rows: auto 1fr auto auto;
+  grid-template-rows: auto 1fr auto;
   align-items: center;
   justify-items: center;
-  gap: 14px;
+  gap: 0;
   padding: 16px 16px calc(18px + env(safe-area-inset-bottom, 0px));
   border-radius: 32px;
   background: rgba(255, 255, 255, 0.78);
@@ -37,18 +37,6 @@
   pointer-events: none;
 }
 
-.pageLabel {
-  position: relative;
-  z-index: 1;
-  margin: 0;
-  justify-self: start;
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #b7b7b7;
-}
-
 .bubbleWrap {
   width: 100%;
   display: flex;
@@ -56,6 +44,7 @@
   align-items: end;
   position: relative;
   z-index: 1;
+  margin-top: 4px;
 }
 
 .bubble {
@@ -64,7 +53,7 @@
   min-height: clamp(170px, 28svh, 220px);
   background: rgba(255, 255, 255, 0.95);
   border-radius: 42px;
-  padding: 26px 20px;
+  padding: 26px 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,9 +77,9 @@
 
 .bubbleText {
   margin: 0;
-  font-size: clamp(18px, 5.4vw, 22px);
+  font-size: 28px;
   line-height: 1.35;
-  font-weight: 800;
+  font-weight: 700;
   color: #3f332d;
   max-width: 22ch;
 }
@@ -98,10 +87,11 @@
 .mascotWrap {
   position: relative;
   z-index: 1;
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: -2px;
+  align-items: end;
+  margin: 8px 0 16px;
 }
 
 .mascot {
@@ -113,21 +103,22 @@
   filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.12));
 }
 
-.button {
+.ctaWrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.cta {
   margin: 0;
   width: min(100%, 326px);
   min-height: 62px;
   padding: 10px 20px;
-  border: none;
-  outline: none;
-  appearance: none;
-  -webkit-appearance: none;
   border-radius: 22px;
+  border: 3px solid #000;
   background: #abcc3b;
-  color: #ffffff;
-  font-size: clamp(32px, 9vw, 50px);
-  font-weight: 800;
-  line-height: 1;
   box-shadow:
     0 12px 20px rgba(171, 204, 59, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -137,14 +128,28 @@
   justify-content: center;
   text-align: center;
   cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
-.button:active {
-  transform: translateY(3px) scale(0.97);
-} 
+.ctaText {
+  color: #fff;
+  font-size: 50px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 3px;
+  paint-order: stroke fill;
+  -webkit-text-stroke: 4.5px #000;
+  text-shadow: none;
+}
 
-.button:focus,
-.button:focus-visible {
+.cta:active {
+  transform: translateY(3px) scale(0.97);
+}
+
+.cta:focus,
+.cta:focus-visible {
   outline: none;
   box-shadow:
     0 12px 20px rgba(171, 204, 59, 0.35),
