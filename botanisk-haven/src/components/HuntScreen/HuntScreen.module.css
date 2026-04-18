@@ -41,9 +41,8 @@
   position: relative;
   z-index: 1;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 12px;
 }
 
@@ -63,7 +62,7 @@
 }
 
 .round {
-  margin: 0;
+  margin: 2px 0 0;
   font-size: 20px;
   font-weight: 900;
   color: #1f1f1f;
@@ -71,7 +70,7 @@
 
 .hintOverlay {
   position: absolute;
-  top: 88px;
+  top: 70px;
   left: 16px;
   right: 16px;
   z-index: 20;
