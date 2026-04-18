@@ -1,33 +1,50 @@
 .screen {
-  min-height: 100dvh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px;
+  padding: 12px;
   position: relative;
   overflow: hidden;
 }
 
 .card {
-  width: min(100%, 430px);
-  height: min(100dvh - 28px, 860px);
+  width: 100%;
+  max-width: 430px;
+  min-height: calc(100svh - 24px);
   display: grid;
-  grid-template-rows: auto auto 1fr auto;
-  gap: 12px;
-  position: relative;
-  border-radius: 28px;
-  padding: 16px;
+  grid-template-rows: auto 1fr auto;
+  gap: 0;
+  padding: 16px 16px calc(18px + env(safe-area-inset-bottom, 0px));
+  border-radius: 32px;
   background: rgba(255, 252, 246, 0.78);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(8px);
   box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.12),
+    0 18px 40px rgba(0, 0, 0, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right, rgba(241, 145, 59, 0.12), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(83, 177, 226, 0.12), transparent 26%),
+    radial-gradient(circle at bottom right, rgba(171, 204, 59, 0.14), transparent 28%);
+  pointer-events: none;
 }
 
 .topBar {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
 }
 
 .roundInfo {
@@ -37,19 +54,28 @@
 }
 
 .kicker {
-  margin: 0 0 0 5px;
-  font-size: 0.78rem;
-  font-weight: 800;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 900;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #f1913b;
 }
 
 .round {
-  margin: 0 0 0 5px;
-  font-size: 1.1rem;
+  margin: 0;
+  font-size: 20px;
   font-weight: 900;
-  color: #2c2c2c;
+  color: #1f1f1f;
+}
+
+.hintOverlay {
+  position: absolute;
+  top: 88px;
+  left: 16px;
+  right: 16px;
+  z-index: 20;
+  pointer-events: none;
 }
 
 .hintBanner {
@@ -63,11 +89,12 @@
   padding: 14px 16px 12px;
   background: rgba(229, 209, 115, 0.96);
   box-shadow: 0 12px 22px rgba(0, 0, 0, 0.12);
+  pointer-events: auto;
 }
 
 .hintLabel {
   margin: 0 0 6px;
-  font-size: 0.76rem;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -76,8 +103,8 @@
 
 .hintText {
   margin: 0;
-  font-size: 0.96rem;
-  line-height: 1.4;
+  font-size: 15px;
+  line-height: 1.35;
   color: #3b3422;
   font-weight: 700;
 }
@@ -85,54 +112,112 @@
 .mainContent {
   min-height: 0;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.imageWrap {
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.plantImage {
+  width: 100%;
+  aspect-ratio: 1.12 / 1;
+  object-fit: cover;
+  display: block;
+  border-radius: 28px;
+}
+
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.plantName {
+  margin: 0;
+  font-size: clamp(28px, 8vw, 36px);
+  line-height: 1.05;
+  font-weight: 700;
+  color: #151515;
+}
+
+.description {
+  margin: 0;
+  font-size: clamp(14px, 4.5vw, 20px);
+  line-height: 1.34;
+  font-weight: 400;
+  color: #3f3f3f;
+}
+
+.climateBar {
+  min-height: 74px;
+  border-radius: 22px;
+  background: #c6dc73;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+}
+
+.climateIcon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+  flex: 0 0 auto;
+}
+
+.climateText {
+  font-size: clamp(16px, 5vw, 22px);
+  line-height: 1.2;
+  font-weight: 600;
+  color: #1c1c1c;
 }
 
 .actions {
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 22px;
-  padding-bottom: 2px;
+  gap: 34px;
+  padding-top: 18px;
 }
 
 .iconButton {
-  width: 76px;
-  height: 76px;
+  width: 65px;
+  height: 65px;
+  margin-bottom: 34px;
   border: none;
   background: transparent;
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  cursor: pointer;
 }
 
 .iconButton img {
-  width: 68px;
-  height: 68px;
+  width: 92px;
+  height: 92px;
   object-fit: contain;
-  transition: transform 0.18s ease, opacity 0.18s ease, filter 0.18s ease;
-  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.18));
+  display: block;
+  transition: transform 0.18s ease, opacity 0.18s ease;
 }
 
 .iconButton:active img {
-  transform: scale(0.92);
+  transform: scale(0.95);
 }
 
 .iconButton:disabled img {
   opacity: 0.45;
-}
-
-.hintButton img {
-  filter:
-    drop-shadow(0 8px 14px rgba(241, 145, 59, 0.28))
-    drop-shadow(0 2px 6px rgba(0, 0, 0, 0.12));
-}
-
-.cameraButton img {
-  filter:
-    drop-shadow(0 8px 14px rgba(83, 177, 226, 0.28))
-    drop-shadow(0 2px 6px rgba(0, 0, 0, 0.12));
 }
 
 .resultOverlay {
@@ -161,34 +246,5 @@
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@media (max-height: 760px) {
-  .card {
-    gap: 10px;
-    padding: 14px;
-  }
-
-  .hintBannerInner {
-    padding: 12px 14px 10px;
-  }
-
-  .hintText {
-    font-size: 0.92rem;
-  }
-
-  .actions {
-    gap: 18px;
-  }
-
-  .iconButton {
-    width: 68px;
-    height: 68px;
-  }
-
-  .iconButton img {
-    width: 60px;
-    height: 60px;
   }
 }

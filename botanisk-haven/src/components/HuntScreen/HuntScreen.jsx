@@ -1,6 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./HuntScreen.module.css";
-import PlantCard from "../PlantCard/PlantCard";
 import ResultMessage from "../ResultMessage/ResultMessage";
 import QrScanner from "../QrScanner/QrScanner";
 import ProgressDots from "../ProgressDots/ProgressDots";
@@ -23,14 +22,11 @@ function HuntScreen({
   useEffect(() => {
     setShowHint(false);
     setShowScanner(false);
-
   }, [plant]);
-
 
   const handleShowHint = () => {
     if (result === "success") return;
-
-    setShowHint(prev => !prev);
+    setShowHint((prev) => !prev);
   };
 
   const handleRealScan = (decodedText) => {
@@ -38,19 +34,7 @@ function HuntScreen({
     const expectedValue = String(plant.qr_code).trim();
 
     setShowScanner(false);
-
-    if (showHint) {
-      setShowHint(false);
-      setHintTick(0);
-
-      if (hintTimerRef.current) {
-        clearTimeout(hintTimerRef.current);
-      }
-
-      if (hintProgressRef.current) {
-        clearInterval(hintProgressRef.current);
-      }
-    }
+    setShowHint(false);
 
     if (scannedValue === expectedValue) {
       onScanSuccess();
@@ -59,14 +43,24 @@ function HuntScreen({
     }
   };
 
+  const plantImage = new URL(
+    `../../assets/plants/${plant.image}`,
+    import.meta.url
+  ).href;
+
+  const climateImage = new URL(
+    `../../assets/icons/${plant.climate_image}`,
+    import.meta.url
+  ).href;
+
   return (
     <section className={styles.screen}>
       <div className={styles.card}>
         <header className={styles.topBar}>
           <div className={styles.roundInfo}>
-            <p className={styles.kicker}>Plant Hunt</p>
+            <p className={styles.kicker}>PLANT HUNT</p>
             <p className={styles.round}>
-              Hunt {roundNumber} / {totalRounds}
+              HUNT {roundNumber} / {totalRounds}
             </p>
           </div>
 
@@ -74,37 +68,55 @@ function HuntScreen({
         </header>
 
         {showHint && (
-          <div className={styles.hintBanner}>
-            <div className={styles.hintBannerInner}>
-              <p className={styles.hintLabel}>Hint</p>
-              <p className={styles.hintText}>{plant.hint}</p>
+          <div className={styles.hintOverlay}>
+            <div className={styles.hintBanner}>
+              <div className={styles.hintBannerInner}>
+                <p className={styles.hintLabel}>Hint</p>
+                <p className={styles.hintText}>{plant.hint}</p>
+              </div>
             </div>
           </div>
         )}
 
         <div className={styles.mainContent}>
-          <PlantCard plant={plant} />
+          <div className={styles.imageWrap}>
+            <img
+              src={plantImage}
+              alt={plant.name}
+              className={styles.plantImage}
+            />
+          </div>
+
+          <div className={styles.infoBlock}>
+            <h1 className={styles.plantName}>{plant.name}</h1>
+            <p className={styles.description}>{plant.introduction}</p>
+
+            <div className={styles.climateBar}>
+              <img src={climateImage} alt="" className={styles.climateIcon} />
+              <span className={styles.climateText}>{plant.likes}</span>
+            </div>
+          </div>
         </div>
 
         <div className={styles.actions}>
           <button
             type="button"
-            className={`${styles.iconButton} ${styles.hintButton}`}
-            onClick={handleShowHint}
-            disabled={result === "success"}
-            aria-label="Show hint"
-          >
-            <img src={hintIcon} alt="" />
-          </button>
-
-          <button
-            type="button"
-            className={`${styles.iconButton} ${styles.cameraButton}`}
+            className={styles.iconButton}
             onClick={() => setShowScanner(true)}
             disabled={result === "success"}
             aria-label="Open camera"
           >
             <img src={cameraIcon} alt="" />
+          </button>
+
+          <button
+            type="button"
+            className={styles.iconButton}
+            onClick={handleShowHint}
+            disabled={result === "success"}
+            aria-label="Show hint"
+          >
+            <img src={hintIcon} alt="" />
           </button>
         </div>
       </div>
