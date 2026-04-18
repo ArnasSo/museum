@@ -26,7 +26,6 @@ function ResultMessage({ type, plantName, funFact, onTryAgain, onContinue }) {
   if (type === "success") {
     return (
       <div className={`${styles.message} ${styles.success}`}>
-        {/* 🦋 Butterflies */}
         <div className={styles.butterflies} aria-hidden="true">
           {butterflies.map((b) => (
             <div
@@ -62,20 +61,22 @@ function ResultMessage({ type, plantName, funFact, onTryAgain, onContinue }) {
 
         <p className={`${styles.kicker} ${styles.successKicker}`}>EUREKA!</p>
 
-        <img
-          src={mascotExcited}
-          alt="Happy mascot"
-          className={`${styles.mascot} ${styles.successMascot}`}
-        />
+        <div className={styles.successContent}>
+          <img
+            src={mascotExcited}
+            alt="Happy mascot"
+            className={`${styles.mascot} ${styles.successMascot}`}
+          />
 
-        <div className={styles.factCard}>
-          <div className={styles.factHeader}>
-            <span className={styles.factEmoji}>💡</span>
-            <span className={styles.factTitle}>DID YOU KNOW?</span>
-          </div>
+          <div className={styles.factCard}>
+            <div className={styles.factHeader}>
+              <span className={styles.factEmoji}>💡</span>
+              <span className={styles.factTitle}>DID YOU KNOW?</span>
+            </div>
 
-          <div className={styles.factBody}>
-            <p className={styles.factText}>{funFact}</p>
+            <div className={styles.factBody}>
+              <p className={styles.factText}>{funFact}</p>
+            </div>
           </div>
         </div>
 
@@ -95,19 +96,21 @@ function ResultMessage({ type, plantName, funFact, onTryAgain, onContinue }) {
       <div className={`${styles.message} ${styles.fail}`}>
         <p className={`${styles.kicker} ${styles.failKicker}`}>OOPS!</p>
 
-        <div className={styles.failSpeechWrap}>
-          <div className={styles.speechBubble}>
-            <p className={styles.speechText}>
-              That&apos;s not the right plant.
-            </p>
+        <div className={styles.failContent}>
+          <div className={styles.failSpeechWrap}>
+            <div className={styles.speechBubble}>
+              <p className={styles.speechText}>
+                That&apos;s not the right plant.
+              </p>
+            </div>
           </div>
-        </div>
 
-        <img
-          src={mascotConfused}
-          alt="Confused mascot"
-          className={`${styles.mascot} ${styles.failMascot}`}
-        />
+          <img
+            src={mascotConfused}
+            alt="Confused mascot"
+            className={`${styles.mascot} ${styles.failMascot}`}
+          />
+        </div>
 
         <button
           className={`${styles.cta} ${styles.failButton}`}
