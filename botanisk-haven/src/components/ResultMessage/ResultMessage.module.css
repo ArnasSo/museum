@@ -9,9 +9,22 @@
   box-shadow:
     0 18px 34px rgba(0, 0, 0, 0.14),
     inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  text-align: center;
+}
+
+.success {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  text-align: center;
+  align-items: start;
+  color: #4d3a2f;
+}
+
+.fail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: #5a4032;
 }
 
 .kicker,
@@ -46,10 +59,11 @@
 
 .failMascot {
   width: clamp(200px, 64vw, 300px);
-  margin: 8px auto 10px;
+  margin: 8px auto 12px;
   filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.14));
 }
 
+/* success fact box */
 .factCard {
   border-radius: 24px;
   overflow: hidden;
@@ -91,7 +105,9 @@
 
 /* fail speech bubble */
 .failSpeechWrap {
-  margin-top: 14px;
+  width: 100%;
+  margin-top: 18px;
+  margin-bottom: 8px;
   display: flex;
   justify-content: center;
 }
@@ -99,26 +115,29 @@
 .speechBubble {
   position: relative;
   width: 100%;
-  max-width: 100%;
   border-radius: 40px;
   background: white;
-  padding: 18px 24px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  padding: 22px 24px;
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .speechBubble::after {
   content: "";
   position: absolute;
-  left: 30%;
-  bottom: -22px;
-  border-left: 42px solid transparent;
-  border-top: 50px solid white;
+  left: 36%;
+  bottom: -20px;
+  width: 36px;
+  height: 36px;
+  background: white;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
 }
 
 .speechText {
   margin: 0;
   font-size: clamp(22px, 7vw, 38px);
-  line-height: 1.18;
+  line-height: 1.16;
   font-weight: 500;
   color: #111111;
 }
@@ -162,7 +181,7 @@
   line-height: 1;
   letter-spacing: 3px;
   paint-order: stroke fill;
-  -webkit-text-stroke: 4.5px #000;
+  -webkit-text-stroke: 3px #000;
   text-shadow: none;
 }
 
@@ -211,9 +230,11 @@
     transform: translateY(0);
     opacity: 0;
   }
+
   10% {
     opacity: 1;
   }
+
   100% {
     transform: translateY(-110vh);
     opacity: 0;
@@ -225,6 +246,7 @@
   100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.05, 0.95);
   }
@@ -236,6 +258,7 @@
   100% {
     opacity: 1;
   }
+
   51%,
   99% {
     opacity: 0;
@@ -248,6 +271,7 @@
   100% {
     opacity: 0;
   }
+
   51%,
   99% {
     opacity: 1;
